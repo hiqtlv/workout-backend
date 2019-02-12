@@ -16,11 +16,11 @@ pipeline {
             agent {
                 docker {
                     image 'openjdk:8-jdk-alpine' 
-                    args '-v /root/.m2:/root/.m2' 
+                    args '-v $WORKSPACE/target:/user/local/app' 
              }
 			}			 
             steps {
-                sh 'java -jar $WORKSPACE/target/workout-rest-services-0.0.1-SNAPSHOT.jar' 
+                sh 'java -jar /user/local/app/workout-rest-services-0.0.1-SNAPSHOT.jar' 
             }
         }
     }
