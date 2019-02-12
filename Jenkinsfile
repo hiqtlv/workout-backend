@@ -16,7 +16,7 @@ pipeline {
             agent {
                 docker {
                     image 'openjdk:8-jdk-alpine' 
-                    args '-v $WORKSPACE/target:/user/local/app' 
+                    args '-v /user/local/app:$WORKSPACE/target' 
              }
 			}			 
             steps {
