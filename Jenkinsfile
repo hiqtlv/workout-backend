@@ -21,7 +21,6 @@ pipeline {
 			}			 
             steps {
 		sh 'mkdir -p /user/local/app' 
-		sh 'ls user/local/app'
                 sh 'java -jar /user/local/app/workout-rest-services-0.0.1-SNAPSHOT.jar' 
             }
         }
