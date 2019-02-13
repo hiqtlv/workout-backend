@@ -9,6 +9,7 @@ pipeline {
                     image 'alpine'
                     args '-v /var/run/docker.sock:/var/run/docker.sock'
                 }
+            }
             stage('Docker test') {
                 steps {
                     sh 'docker version'
