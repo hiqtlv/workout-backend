@@ -16,7 +16,7 @@ pipeline {
             agent {
                 docker {
                     image 'openjdk:8-jdk-alpine' 
-                    args '-v /var/jenkins_home/:/var/jenkins_home/ -p 8081:8080' 
+                    args '-v $WORKSPACE/target:/var/jenkins_home/ -p 8081:8080' 
              }
 			}			 
             steps {
