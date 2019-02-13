@@ -3,14 +3,14 @@ pipeline {
             label 'docker'
          }
         stages {
-            agent {
-                docker {
-                    label 'docker'
-                    image 'alpine'
-                    args '-v /var/run/docker.sock:/var/run/docker.sock'
-                }
-            }
             stage('Docker test') {
+                agent {
+                    docker {
+                        label 'docker'
+                        image 'alpine'
+                        args '-v /var/run/docker.sock:/var/run/docker.sock'
+                    }
+                }
                 steps {
                     sh 'docker version'
                 }
