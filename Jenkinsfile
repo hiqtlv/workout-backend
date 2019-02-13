@@ -21,8 +21,7 @@ pipeline {
 			}			 
             steps {
 		sh 'echo jonasjonasjonasjonasjonas'
-		sh 'ls /var/jenkins_home/'
-                sh 'java -jar /var/jenkins_home/workout-rest-services-0.0.1-SNAPSHOT.jar' 
+		
             }
         }
     }
