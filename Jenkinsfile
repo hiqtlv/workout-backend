@@ -16,12 +16,12 @@ pipeline {
             agent {
                 docker {
                     image 'openjdk:8-jdk-alpine' 
-                    args '-v $WORKSPACE/target:$WORKSPACE/target -p 8081:8080' 
+                    args '-p 8081:8080' 
              }
 			}			 
             steps {
-		sh 'echo jonasjonasjonasjonasjonas'
-		sh 'ls $WORKSPACE/target/workspace/workout-backend_master'
+		sh 'echo workspace_var:'
+		sh 'ls $WORKSPACE'
 		sh 'echo jonas2jonas2jonas2jonas2jonas'
 		    
 		sh 'java -jar $WORKSPACE/target/workout-rest-services-0.0.1-SNAPSHOT.jar' 
