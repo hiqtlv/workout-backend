@@ -1,6 +1,5 @@
 pipeline {
-	agent none
-    stages {
+	stages {
         stage('Build-Backend') {
             agent {
                 docker {
@@ -13,7 +12,7 @@ pipeline {
             }
         }
         stage('Deploy-Backend') {
-
+            agent any
             steps {
                 sh 'echo hi'
 		        sh 'docker build . -t localjavadocker'
