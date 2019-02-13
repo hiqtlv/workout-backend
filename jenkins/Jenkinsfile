@@ -1,0 +1,22 @@
+// Jenkinsfile
+
+pipeline {
+        agent {
+            docker {
+                image 'alpine'
+                args '-v /var/run/docker.sock:/var/run/docker.sock'
+            }
+        }
+        stages {
+                stage('Build') {
+                    steps {
+                        sh 'mvn -B -DskipTests clean package'
+                    }
+                }
+                stage('Deploy') {
+                    steps {
+                        sh './jenkins/scripts/deliver.sh'
+                    }
+                }
+            }
+}
