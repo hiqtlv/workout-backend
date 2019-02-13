@@ -20,7 +20,7 @@ pipeline {
              }
 			}			 
             steps {    
-		sh 'nohup java -jar /root/.m2/repository/se/hiq/workout-rest-services/0.0.1-SNAPSHOT/workout-rest-services-0.0.1-SNAPSHOT.jar' 
+		sh 'nohup java -jar /root/.m2/repository/se/hiq/workout-rest-services/0.0.1-SNAPSHOT/workout-rest-services-0.0.1-SNAPSHOT.jar &' 
             }
         }
     }
