@@ -13,9 +13,10 @@ pipeline {
             }
         }
         stage('Deploy-Backend') {
-            agent any
+            agent none
             steps {
                 sh 'echo hi'
+                sh 'ls /root/.m2/repository/se/hiq/workout-rest-services/0.0.1-SNAPSHOT/'
 		        sh 'docker build . -t localjavadocker'
 		        sh 'docker run -p 8081:8080 localjavadocker'
             }
