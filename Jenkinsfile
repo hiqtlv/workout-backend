@@ -13,7 +13,7 @@ pipeline {
             }
         }
         stage('Deploy-Backend') {
-            agent none
+            agent any
             steps {
                 sh 'echo hi'
                 sh 'ls /root/.m2/repository/se/hiq/workout-rest-services/0.0.1-SNAPSHOT/'
