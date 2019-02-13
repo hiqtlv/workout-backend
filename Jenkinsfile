@@ -1,12 +1,12 @@
 pipeline {
         agent {
-            label 'jenkins'
+            label 'Jenkins'
          }
         stages {
             stage('Docker test') {
                 agent {
                     docker {
-                        label 'jenkins'
+                        label 'Jenkins'
                         image 'alpine'
                         args '-v /var/run/docker.sock:/var/run/docker.sock'
                     }
