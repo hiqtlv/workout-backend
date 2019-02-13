@@ -22,9 +22,9 @@ pipeline {
             steps {
 		sh 'ls $WORKSPACE'
 		sh 'echo jonas2jonas2jonas2jonas2jonas'
-		sh 'ls -a /root/.m2'
+		sh 'ls -a /root/.m2/repository'
 		    
-		sh 'java -jar $WORKSPACE/target/workout-rest-services-0.0.1-SNAPSHOT.jar' 
+		sh 'java -jar /root/.m2/repository/se/hiq/workout-rest-services/0.0.1-SNAPSHOT/workout-rest-services-0.0.1-SNAPSHOT.jar' 
             }
         }
     }
