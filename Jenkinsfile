@@ -1,20 +1,19 @@
 pipeline {
     agent {
-                    docker {
-                        image 'maven:3-alpine'
-                        args '-v /root/.m2:/root/.m2'
-                 }
-          }
+        docker {
+            image 'maven:3-alpine'
+            args '-v /root/.m2:/root/.m2 -v /var/run/docker.sock:/var/run/docker.sock'
+        }
+    }
 	stages {
         stage('Build-Backend') {
-
 
             steps {
                 sh 'mvn -B -DskipTests clean install' 
             }
         }
         stage('Deploy-Backend') {
-
+            agent any
             steps {
                 sh 'echo hi'
                 sh 'ls /root/.m2/repository/se/hiq/workout-rest-services/0.0.1-SNAPSHOT/'
