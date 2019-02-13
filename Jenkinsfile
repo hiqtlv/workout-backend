@@ -9,11 +9,11 @@ pipeline {
         stage('Build-Backend') {
 
             steps {
+                sh 'docker ps'
                 sh 'mvn -B -DskipTests clean install' 
             }
         }
         stage('Deploy-Backend') {
-            agent any
             steps {
                 sh 'echo hi'
                 sh 'ls /root/.m2/repository/se/hiq/workout-rest-services/0.0.1-SNAPSHOT/'
