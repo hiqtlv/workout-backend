@@ -15,17 +15,11 @@ pipeline {
                 }
                 stage('Deploy') {
                     steps {
-                        sh 'set -x'
-                        sh 'mvn jar:jar install:install help:evaluate -Dexpression=project.name'
-                        sh 'set +x'
-                        sh 'set -x'
-                        sh 'NAME=`mvn help:evaluate -Dexpression=project.name | grep "^[^\[]"`'
-                        sh 'set +x'
-                        sh 'set -x'
-                        sh 'VERSION=`mvn help:evaluate -Dexpression=project.version | grep "^[^\[]"`'
-                        sh 'set +x'
-                        sh 'set -x'
-                        sh 'java -jar target/${NAME}-${VERSION}.jar'
+                        script {
+                            withEnv(['JENKINS_NODE_COOKIE=dontkill']) {
+                                sh "nohup java -jar /root/.m2/repository/se/hiq/workout-rest-services/0.0.1-SNAPSHOT/workout-rest-services-0.0.1-SNAPSHOT.jar &"
+                            }
+                        }
                     }
                 }
             }
