@@ -13,14 +13,11 @@ pipeline {
             }
         }
         stage('Deploy-Backend') {
-            agent {
-                docker {
-                    image 'openjdk:8-jdk-alpine' 
-                    args '-v /root/.m2:/root/.m2 -p 8081:8080' 
-             }
-			}			 
-            steps {    
-		sh 'nohup java -jar /root/.m2/repository/se/hiq/workout-rest-services/0.0.1-SNAPSHOT/workout-rest-services-0.0.1-SNAPSHOT.jar &' 
+
+            steps {
+                sh 'echo hi'
+		        sh 'docker build . -t localjavadocker'
+		        sh 'docker run -p 8081:8080 localjavadocker'
             }
         }
     }
