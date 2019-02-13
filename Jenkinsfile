@@ -16,10 +16,11 @@ pipeline {
             agent {
                 docker {
                     image 'openjdk:8-jdk-alpine' 
-                    args '-v $WORKSPACE:/var/jenkins_home/ -p 8081:8080' 
+                    args '-v /var/jenkins_home/:/var/jenkins_home/ -p 8081:8080' 
              }
 			}			 
             steps {
+		sh 'echo jonasjonasjonasjonasjonas'
 		sh 'ls /var/jenkins_home/'
                 sh 'java -jar /var/jenkins_home/workout-rest-services-0.0.1-SNAPSHOT.jar' 
             }
