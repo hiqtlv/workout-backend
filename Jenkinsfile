@@ -9,8 +9,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'echo hi1'
-                sh 'docker ps'
+                sh 'echo running build'
                 sh 'mvn -B -DskipTests clean install' 
             }
         }
@@ -22,7 +21,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'echo hi2'
+                sh 'echo running deploy'
                 sh 'ls /root/.m2/repository/se/hiq/workout-rest-services/0.0.1-SNAPSHOT/'
 		        sh 'docker build . -t localjavadocker'
 		        sh 'docker run -p 8081:8080 localjavadocker'
