@@ -1,5 +1,10 @@
 pipeline {
-        agent { docker { image 'maven:3.3.3' } }
+        agent {
+            docker {
+                image 'alpine'
+                args '-v /var/run/docker.sock:/var/run/docker.sock'
+            }
+         }
         stages {
             stage('Docker test') {
                 steps {
