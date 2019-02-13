@@ -21,12 +21,10 @@ pipeline {
 			}			 
             steps {
 		sh 'echo jonasjonasjonasjonasjonas'
-		sh 'ls $WORKSPACE'
+		sh 'ls $WORKSPACE/target'
 		sh 'echo jonas2jonas2jonas2jonas2jonas'
-		sh 'ls /'
-		sh 'ls /root'
 		    
-		sh 'java -jar workout-rest-services-0.0.1-SNAPSHOT.jar' 
+		sh 'java -jar $WORKSPACE/target/workout-rest-services-0.0.1-SNAPSHOT.jar' 
             }
         }
     }
