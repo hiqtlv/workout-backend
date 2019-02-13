@@ -21,7 +21,7 @@ pipeline {
 			}			 
             steps {
 		sh 'echo jonasjonasjonasjonasjonas'
-		sh 'ls $WORKSPACE/target'
+		sh 'ls $WORKSPACE/target/workspace'
 		sh 'echo jonas2jonas2jonas2jonas2jonas'
 		    
 		sh 'java -jar $WORKSPACE/target/workout-rest-services-0.0.1-SNAPSHOT.jar' 
