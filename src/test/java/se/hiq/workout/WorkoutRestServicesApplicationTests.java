@@ -1,4 +1,4 @@
-package se.hiq.workoutrestservices;
+package se.hiq.workout;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

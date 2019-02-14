@@ -1,4 +1,4 @@
-package se.hiq.workoutrestservices;
+package se.hiq.workout;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
