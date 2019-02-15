@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
-public class ReportService {
+class ReportService {
 
   @Autowired
   private SessionRepository sessionRepository;
