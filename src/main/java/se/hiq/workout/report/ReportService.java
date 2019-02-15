@@ -1,11 +1,13 @@
 package se.hiq.workout.report;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import se.hiq.workout.session.SessionRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Service
 public class ReportService {
 
   @Autowired
