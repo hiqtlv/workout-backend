@@ -11,12 +11,11 @@ public class SessionService {
   @Autowired
   private SessionRepository sessionRepository;
 
-
   public List<Session> getAll() {
     final List<Session> sessions = new ArrayList<>();
     sessionRepository.findAll().forEach(s -> sessions.add(s));
     return sessions;
-   }
+  }
 
   public Session getById(Long id) {
     Optional<Session> byId = sessionRepository.findById(id);

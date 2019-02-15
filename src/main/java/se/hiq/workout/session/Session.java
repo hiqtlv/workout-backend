@@ -1,12 +1,11 @@
 package se.hiq.workout.session;
 
+import java.time.LocalDateTime;
 
 import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.time.LocalDateTime;
-
 
 @Entity
 public class Session {
