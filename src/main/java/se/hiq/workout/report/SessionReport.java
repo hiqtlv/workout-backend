@@ -1,11 +1,9 @@
 package se.hiq.workout.report;
 
 
-import java.time.LocalDateTime;
-
 public class SessionReport {
 
-  private LocalDateTime date;
+  private Long numberOfSessions;
   private Long distance;
   private Long duration;
   private String type;
@@ -13,11 +11,11 @@ public class SessionReport {
 
   public SessionReport(){}
 
-  public SessionReport(Long distance, Long duration, String type, LocalDateTime date) {
+  public SessionReport(Long distance, Long duration, String type, Long numberOfSessions) {
     this.distance = distance;
     this.duration = duration;
     this.type = type;
-    this.date = date;
+    this.numberOfSessions = numberOfSessions;
   }
 
   public void setDistance(Long distance) {
@@ -36,12 +34,12 @@ public class SessionReport {
     this.type = type;
   }
 
-  public LocalDateTime getDate() {
-    return date;
+  public Long getNumberOfSessions() {
+    return numberOfSessions;
   }
 
-  public void setDate(LocalDateTime date) {
-    this.date = date;
+  public void setNumberOfSessions(Long numberOfSessions) {
+    this.numberOfSessions = numberOfSessions;
   }
 
   public Long getDuration() {

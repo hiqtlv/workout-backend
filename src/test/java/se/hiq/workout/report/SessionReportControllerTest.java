@@ -34,8 +34,14 @@ public class SessionReportControllerTest {
     assertEquals(200, sessionReportResponse.getStatusCode().value());
     SessionReport[] sessionReports = sessionReportResponse.getBody();
     assertNotNull(sessionReports);
+
     assertEquals(2, sessionReports.length);
 
+    assertEquals("biking", sessionReports[0].getType());
+    assertEquals(4L, (long) sessionReports[0].getNumberOfSessions());
+
+    assertEquals("running", sessionReports[1].getType());
+    assertEquals(1L, (long) sessionReports[1].getNumberOfSessions());
   }
 
 
@@ -47,8 +53,11 @@ public class SessionReportControllerTest {
     assertEquals(200, sessionReportResponse.getStatusCode().value());
     SessionReport[] sessionReports = sessionReportResponse.getBody();
     assertNotNull(sessionReports);
-    assertEquals(3, sessionReports.length);
+    assertEquals(1, sessionReports.length);
 
+    assertEquals(3L, (long) sessionReports[0].getNumberOfSessions());
+    assertEquals(300L, (long) sessionReports[0].getDistance());
+    assertEquals(4200L, (long) sessionReports[0].getDuration());
   }
 
 }

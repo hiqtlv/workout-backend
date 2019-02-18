@@ -12,15 +12,17 @@ import java.util.List;
 public interface SessionRepository extends CrudRepository<Session, Long> {
 
   @Query("Select new se.hiq.workout.report.SessionReport("
-          + "SUM(distance) as distance, SUM(duration) as duration, type, MIN(date) as date) "
+          + "SUM(distance) as distance, SUM(duration) as duration, type, "
+          + "COUNT(*) as numberOfSessions) "
           + "FROM Session S "
           + "WHERE date>=:startDate and date <=:endDate Group By S.type")
   List<SessionReport> findSumByStartAndEndDate(@Param("startDate") LocalDateTime startDate,
                                                @Param("endDate") LocalDateTime endDate);
 
   @Query("Select new se.hiq.workout.report.SessionReport("
-         + "SUM(distance) as distance, SUM(duration) as duration, type, date) "
+         + "SUM(distance) as distance, SUM(duration) as duration, type, "
+         + "COUNT(*) as numberOfSessions) "
          + "FROM Session S "
-         + "WHERE S.type=:type Group By S.date")
+         + "WHERE S.type=:type")
   List<SessionReport> findSumByType(@Param("type") String type);
 }
