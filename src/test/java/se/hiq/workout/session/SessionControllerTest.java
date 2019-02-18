@@ -55,10 +55,10 @@ public class SessionControllerTest {
   @Test
   public void addWorkoutSessionTest() {
     Session session = new Session();
-    session.setType("running");
+    session.setType("mounting biking");
     session.setDistance(100);
     session.setDuration(1400);
-    session.setDate(LocalDateTime.parse("2010-01-01T00:00"));
+    session.setDate(LocalDateTime.parse("2011-01-01T00:00"));
 
     ResponseEntity<Session> sessionResponseEntity = restTemplate.postForEntity("/session", session, Session.class, new HashMap<>());
 
