@@ -10,15 +10,12 @@ pipeline {
         stages {
                 stage('Build') {
                     steps {
-                        sh 'mvn -B -DskipTests clean package'
+                        sh 'mvn install'
                     }
                 }
                 stage('Deploy') {
                     steps {
-                        script {
-                            withEnv(['JENKINS_NODE_COOKIE=dontkill']) {
-                                sh "nohup java -jar /root/.m2/repository/se/hiq/workout-rest-services/0.0.1-SNAPSHOT/workout-rest-services-0.0.1-SNAPSHOT.jar &"
-                            }
+                        sh './jenkins/scripts/deliver.sh'
                         }
                     }
                 }
