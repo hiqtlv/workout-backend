@@ -42,4 +42,12 @@ public class SessionTest {
 
     verify(sessionService, times(1)).createSession(session);
   }
+
+  @Test
+  public void deleteSession() {
+
+    sessionController.deleteSession(6767L);
+
+    verify(sessionService, times(1)).deleteSessionById(6767L);
+  }
 }

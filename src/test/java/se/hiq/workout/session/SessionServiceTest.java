@@ -35,4 +35,12 @@ public class SessionServiceTest {
 
     verify(sessionRepository, times(1)).findById(2L);
   }
+
+  @Test
+  public void deleteSessionByIdTest() {
+
+    sessionRepository.deleteById(45L);
+
+    verify(sessionRepository, times(1)).deleteById(45L);
+  }
 }

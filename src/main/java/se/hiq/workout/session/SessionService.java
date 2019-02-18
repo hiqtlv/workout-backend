@@ -27,4 +27,8 @@ class SessionService {
   Session createSession(Session session) {
     return sessionRepository.save(session);
   }
+
+  void deleteSessionById(Long id) {
+    sessionRepository.deleteById(id);
+  }
 }

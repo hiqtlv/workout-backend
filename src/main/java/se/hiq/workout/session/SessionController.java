@@ -1,6 +1,7 @@
 package se.hiq.workout.session;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,5 +30,10 @@ class SessionController {
   @PostMapping("/session")
   Session createSession(@RequestBody Session session) {
     return sessionService.createSession(session);
+  }
+
+  @DeleteMapping("/session/{id}")
+  void deleteSession(@PathVariable Long id) {
+    sessionService.deleteSessionById(id);
   }
 }
