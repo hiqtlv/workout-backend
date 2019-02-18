@@ -1,22 +1,29 @@
 // Jenkinsfile
 
 pipeline {
-        agent {
-            docker {
-                image 'jenkinsci/blueocean'
-                args '-v /root/.m2:/root/.m2 -v /var/run/docker.sock:/var/run/docker.sock'
-            }
-        }
+        agent none
         stages {
-                stage('Build') {
-                    steps {
-                        sh 'mvn install'
+            stage('Build') {
+                agent {
+                    docker {
+                        image 'maven:3-alpine'
+                        args '-v /root/.m2:/root/.m2'
                     }
                 }
-                stage('Deploy') {
-                    steps {
-                        sh './jenkins/scripts/deliver.sh'
-                        }
+                steps {
+                    sh 'mvn install'
+                }
+            }
+            stage('Deploy') {
+                agent {
+                    docker {
+                        image 'jenkinsci/blueocean'
+                        args '-v /var/run/docker.sock:/var/run/docker.sock'
                     }
                 }
+                steps {
+                    sh './jenkins/scripts/deliver.sh'
+                    }
+                }
+            }
 }
