@@ -31,12 +31,8 @@ public class SessionControllerTest {
     Session[] sessions = restTemplate.getForObject("/session", Session[].class);
 
     assertNotNull(sessions);
-    Session session1 = sessions[0];
-    assertEquals(1, session1.getId());
-    assertEquals("running", session1.getType());
-    assertEquals(1400, session1.getDuration());
-    assertEquals(100, session1.getDistance());
-    assertEquals("2010-01-01T00:00", session1.getDate().toString());
+    assertTrue(sessions.length >= 10);
+
   }
 
   @Test
