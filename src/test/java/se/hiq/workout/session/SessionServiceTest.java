@@ -39,7 +39,7 @@ public class SessionServiceTest {
   @Test
   public void deleteSessionByIdTest() {
 
-    sessionRepository.deleteById(45L);
+    sessionService.deleteSessionById(45L);
 
     verify(sessionRepository, times(1)).deleteById(45L);
   }
