@@ -20,7 +20,7 @@ pipeline {
                 agent {
                     docker {
                         image 'jenkinsci/blueocean'
-                        args '-v /root/.m2:/root/.m2 -v $HOME:/var/jenkins_home' -v /var/run/docker.sock:/var/run/docker.sock'
+                        args '-v /root/.m2:/root/.m2 -v $HOME:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock'
                     }
                 }
                 steps {
