@@ -24,7 +24,6 @@ pipeline {
                 steps {
                     echo './jenkins/scripts/deliver.sh'
                     sh 'ls'
-                    sh 'ls ./target'
                     sh 'ls /root/.m2'
                     }
                 }
