@@ -13,7 +13,7 @@ pipeline {
                 steps {
                     sh 'pwd'
                     sh 'ls'
-                    echo ${JENKINS_HOME}
+                    echo "${JENKINS_HOME}"
                     sh 'mvn -DskipTests package'
                     sh 'ls'
                 }
@@ -28,7 +28,7 @@ pipeline {
                 steps {
                     sh 'pwd'
                     sh 'ls'
-                    echo ${JENKINS_HOME}
+                    echo "${JENKINS_HOME}"
                     sh './jenkins/scripts/deliver.sh'
                     }
                 }
