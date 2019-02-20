@@ -11,18 +11,21 @@ pipeline {
                     }
                 }
                 steps {
-                    sh 'mvn install'
+                    sh 'mvn -Dskiptest package'
                 }
             }
             stage('Deploy') {
                 agent {
                     docker {
                         image 'jenkinsci/blueocean'
-                        args '-v /var/run/docker.sock:/var/run/docker.sock'
+                        args '-v /root/.m2:/root/.m2 -v /var/run/docker.sock:/var/run/docker.sock'
                     }
                 }
                 steps {
-                    sh './jenkins/scripts/deliver.sh'
+                    echo './jenkins/scripts/deliver.sh'
+                    sh 'ls'
+                    sh 'ls ./target'
+                    sh 'ls /root/.m2'
                     }
                 }
             }
