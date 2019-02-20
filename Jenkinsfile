@@ -7,12 +7,13 @@ pipeline {
                 agent {
                     docker {
                         image 'maven:3-alpine'
-                        args '-v /root/.m2:/root/.m2 -v ${JENKINS_HOME}:/var/jenkins_home'
+                        args '-v /root/.m2:/root/.m2'
                     }
                 }
                 steps {
                     sh 'pwd'
                     sh 'ls'
+                    echo ${JENKINS_HOME}
                     sh 'mvn -DskipTests package'
                     sh 'ls'
                 }
@@ -27,6 +28,7 @@ pipeline {
                 steps {
                     sh 'pwd'
                     sh 'ls'
+                    echo ${JENKINS_HOME}
                     sh './jenkins/scripts/deliver.sh'
                     }
                 }
