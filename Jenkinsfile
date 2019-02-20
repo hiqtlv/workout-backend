@@ -11,7 +11,7 @@ pipeline {
                     }
                 }
                 steps {
-                    sh 'mvn -Dskiptest package'
+                    sh 'mvn -DskipTests package'
                 }
             }
             stage('Deploy') {
@@ -23,8 +23,9 @@ pipeline {
                 }
                 steps {
                     echo './jenkins/scripts/deliver.sh'
+                    sh 'pwd'
                     sh 'ls'
-                    sh 'ls /root/.m2'
+                    sh 'ls /root/.m2/repository'
                     }
                 }
             }
