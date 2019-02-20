@@ -7,7 +7,7 @@ pipeline {
                 agent {
                     docker {
                         image 'maven:3-alpine'
-                        args '-v /root/.m2:/root/.m2 -v /jenkins_data:/var/jenkins_home'
+                        args '-v /root/.m2:/root/.m2'
                     }
                 }
                 steps {
@@ -20,7 +20,7 @@ pipeline {
                 agent {
                     docker {
                         image 'jenkinsci/blueocean'
-                        args '-v /root/.m2:/root/.m2  -v /jenkins_data:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock'
+                        args '-v /root/.m2:/root/.m2 -v /var/run/docker.sock:/var/run/docker.sock'
                     }
                 }
                 steps {
